@@ -2,15 +2,17 @@
 
 Helmbot is a helm chatbot for Slack.
 
+This is not production ready yet
+
 # Project setup
 
 Create a package(folder) in $GOPATH/src same as what is mentioned in MakeFile's PKG and clone the project inside newly created package
 
 # Vendoring upfront
 
-Please make sure to perform vendoring upfront. install glide and run  cmd `glide install`
+Please make sure to perform vendoring upfront. install glide and run cmd `glide install`
 
-# Build guide line
+# Build guide 
 
 The build template is forked from https://github.com/thockin/go-build-template
 
@@ -32,3 +34,9 @@ Run `make push` to push the container image to `REGISTRY`.  Run `make all-push`
 to push the container images for all architectures.
 
 Run `make clean` to clean up.
+
+# Credits
+
+Heavily inspired by Harbur
+
+https://github.com/harbur/kubebot

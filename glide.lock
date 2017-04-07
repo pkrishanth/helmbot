@@ -1,0 +1,40 @@
+hash: 09a97e7ef880d866ce3456223e066b0f3dd3aafb787f075f9c9311c13d65bbf5
+updated: 2017-04-06T13:20:58.723302768Z
+imports:
+- name: github.com/go-chat-bot/bot
+  version: 8d0fcfe42a480d25d1a56d8247aafd9c05276010
+  subpackages:
+  - slack
+- name: github.com/mattn/go-shellwords
+  version: 005a0944d84452842197c2108bd9168ced206f78
+- name: github.com/nlopes/slack
+  version: 5bdec13b7f814e15f59a846bcbc2f64cd71f7888
+- name: github.com/robfig/cron
+  version: df38d32658d8788cd446ba74db4bb5375c4b0cb3
+- name: github.com/technoweenie/multipartstreamer
+  version: a90a01d73ae432e2611d178c18367fbaa13e0154
+- name: github.com/thoj/go-ircevent
+  version: 1b0acb5f2f1b615cfbd4b9f91abb14cb39a18769
+- name: golang.org/x/crypto
+  version: c2303dcbe84172e0c0da4c9f083eeca54c06f298
+  subpackages:
+  - ssh/terminal
+- name: golang.org/x/net
+  version: ffcf1bedda3b04ebb15a168a59800a73d6dc0f4d
+  subpackages:
+  - websocket
+- name: golang.org/x/text
+  version: f4b4367115ec2de254587813edaa901bc1c723a8
+  subpackages:
+  - encoding
+  - encoding/charmap
+  - encoding/htmlindex
+  - transform
+- name: golang.org/x/tools
+  version: 5054e612afecd2460e8659117a716cb5b58d4b88
+  subpackages:
+  - go/buildutil
+  - go/loader
+- name: gopkg.in/telegram-bot-api.v3
+  version: 170874ea9ccf20bda77d991aa36f9427922a26e1
+testImports: []

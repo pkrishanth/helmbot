@@ -16,7 +16,7 @@
 
 set -o errexit
 set -o nounset
-set -o pipefail
+#set -o pipefail
 
 if [ -z "${PKG}" ]; then
     echo "PKG must be set"

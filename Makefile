@@ -25,7 +25,7 @@ REGISTRY ?= pkrishnath
 ARCH ?= amd64
 
 # This version-strategy uses git tags to set the version string
-VERSION := $(shell git describe --tags --always --dirty)
+VERSION := 1.0
 #
 # This version-strategy uses a manual value to set the version string
 #VERSION := 1.2.3
@@ -34,7 +34,7 @@ VERSION := $(shell git describe --tags --always --dirty)
 ### These variables should not need tweaking.
 ###
 
-SRC_DIRS := cmd pkg # directories which hold app source (not vendored)
+SRC_DIRS := pkg # directories which hold app source (not vendored)
 
 ALL_ARCH := amd64 arm arm64 ppc64le
 
@@ -54,7 +54,7 @@ endif
 
 IMAGE := $(REGISTRY)/$(BIN)-$(ARCH)
 
-BUILD_IMAGE ?= golang:1.7-alpine 
+BUILD_IMAGE ?= golang:1.7
 
 # If you want to build all binaries, see the 'all-build' rule.
 # If you want to build all containers, see the 'all-container' rule.
@@ -149,6 +149,7 @@ clean: container-clean bin-clean
 
 container-clean:
 	rm -rf .container-* .dockerfile-* .push-*
+	@docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
 
 bin-clean:
 	rm -rf .go bin

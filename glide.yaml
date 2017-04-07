@@ -1,0 +1,19 @@
+package: github.com/pkrishnath/helmbot
+import:
+- package: github.com/go-chat-bot/bot
+  subpackages:
+  - slack
+- package: github.com/thoj/go-ircevent
+- package: gopkg.in/telegram-bot-api.v3
+- package: golang.org/x/text/encoding
+- package: golang.org/x/text/encoding/charmap
+- package: golang.org/x/text/encoding/htmlindex
+- package: golang.org/x/text/transform
+- package: golang.org/x/crypto/ssh/terminal
+- package: golang.org/x/tools/go/buildutil
+- package: golang.org/x/tools/go/loader
+- package: github.com/technoweenie/multipartstreamer
+excludeDirs:
+- examples
+
+
