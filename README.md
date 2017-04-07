@@ -4,6 +4,8 @@ Helmbot is a helm chatbot for Slack.
 
 This is not production ready yet
 
+Dev in progress ...
+
 # Project setup
 
 Create a package(folder) in $GOPATH/src same as what is mentioned in MakeFile's PKG and clone the project inside newly created package
