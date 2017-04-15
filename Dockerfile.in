@@ -12,26 +12,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM golang:1.7-alpine
+FROM ARG_FROM
 
 MAINTAINER Krishnath Poologanathan <pkrishnath@gmail.com>
 
 ENV VERSION v2.2.3
 ENV FILENAME helm-${VERSION}-linux-amd64.tar.gz
 
-RUN mkdir -p /go/src/app
-WORKDIR /go/src/app
+RUN apk add --no-cache ca-certificates bash
 
-ADD *.go /go/src/app/
-ADD vendor /go/src/app/vendor
 
-RUN go-wrapper download
-RUN go-wrapper install
 
 ADD http://storage.googleapis.com/kubernetes-helm/${FILENAME} /tmp
 
 RUN tar -zxvf /tmp/${FILENAME} -C /tmp \
   && mv /tmp/linux-amd64/helm /bin/helm \
   && rm -rf /tmp
+  
+ADD bin/ARG_ARCH/ARG_BIN /ARG_BIN
 
-CMD ["app"]
+
+
+ENTRYPOINT ["/ARG_BIN"]
+
