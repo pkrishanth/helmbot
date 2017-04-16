@@ -34,7 +34,7 @@ VERSION := 1.0
 ### These variables should not need tweaking.
 ###
 
-SRC_DIRS := pkg # directories which hold app source (not vendored)
+SRC_DIRS := pkg cmd # directories which hold app source (not vendored)
 
 ALL_ARCH := amd64 arm arm64 ppc64le
 
@@ -96,6 +96,8 @@ bin/$(ARCH)/$(BIN): build-dirs
 	        PKG=$(PKG)                                                     \
 	        ./build/build.sh                                               \
 	    "
+		@docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+		
 
 DOTFILE_IMAGE = $(subst :,_,$(subst /,_,$(IMAGE))-$(VERSION))
 
@@ -108,7 +110,7 @@ container: .container-$(DOTFILE_IMAGE) container-name
 	    Dockerfile.in > .dockerfile-$(ARCH)
 	@docker build -t $(IMAGE):$(VERSION) -f .dockerfile-$(ARCH) .
 	@docker images -q $(IMAGE):$(VERSION) > $@
-
+	
 container-name:
 	@echo "container: $(IMAGE):$(VERSION)"
 
@@ -149,7 +151,7 @@ clean: container-clean bin-clean
 
 container-clean:
 	rm -rf .container-* .dockerfile-* .push-*
-	@docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+	
 
 bin-clean:
 	rm -rf .go bin
