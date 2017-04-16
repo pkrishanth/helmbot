@@ -37,8 +37,3 @@ to push the container images for all architectures.
 
 Run `make clean` to clean up.
 
-# Credits
-
-Heavily inspired by Harbur
-
-https://github.com/harbur/kubebot
